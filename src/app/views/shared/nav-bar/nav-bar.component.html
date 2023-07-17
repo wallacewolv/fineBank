@@ -1,1 +1,36 @@
-<p>nav-bar works!</p>
+<div class="navBar_container">
+  <div class="navBar_logoMenu">
+    <div class="navBar_top">
+      <img src="./assets/images/LogoWhite.svg" alt="" />
+      <div *ngFor="let menu of menus" class="navBar_menu">
+        <button
+          [class.menu_active]="menu.active"
+          [class.menu_not_active]="!menu.active"
+        >
+          <img src="{{ menu.url }}" alt="" />
+          {{ menu.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="navBar_footer">
+    <button class="navBar_logout">
+      <img src="./assets/images/Logout.svg" alt="" />
+      Logout
+    </button>
+    <div class="navBar_profile">
+      <div class="navBar_name_picture">
+        <img src="./assets/images/me.png" alt="" />
+        <div class="navBar_name_view_profile">
+          <span class="navBar_name">Wallace Wesley</span>
+          <span class="navBar_view_profile">View profile</span>
+        </div>
+      </div>
+      <button class="navBar_icon">
+        <img src="./assets/images/Ellipse.svg" alt="" />
+        <img src="./assets/images/Ellipse.svg" alt="" />
+        <img src="./assets/images/Ellipse.svg" alt="" />
+      </button>
+    </div>
+  </div>
+</div>
