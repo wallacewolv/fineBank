@@ -1,1 +1,21 @@
-<p>header works!</p>
+<div class="header_container">
+  <div class="header_hello_date">
+    <span class="header_hello">Hello Wallace</span>
+    <div class="header_date">
+      <img src="./assets/images/ChevronsRight.svg" alt="" />
+      <time>{{ currentDate }}</time>
+    </div>
+  </div>
+  <div class="header_notification_search">
+    <div
+     [class.header_notification]="notifications.length == 0"
+     [class.header_notification_active]="notifications.length > 0"
+    >
+      <img src="./assets/images/bell.png" alt="" />
+    </div>
+    <div class="search-container">
+      <input type="text" placeholder="Search here">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+  </div>
+</div>
