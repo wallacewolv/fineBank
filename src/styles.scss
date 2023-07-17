@@ -1,4 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:host {
+  --primary-color: #cc0000;
+  --secondary-color: #525256;
+  --default-black: #191919;
+
+  --white: #ffffff;
+
+  --gray-50: #f3f3f3;
+  --gray-100: #e8e8e8;
+  --gray-200: #d1d1d1;
+  --gray-300: #9f9f9f;
+  --gray-400: #878787;
+  --gray-500: #666666;
+
+  --main-bg: #f4f5f7;
+  --green: #4daf6e;
+  --red: #e73d1c;
+  --bg-1: #d2d2d2;
+  --bg-2: #ffffff;
+
+  --regular: "400";
+  --medium: "500";
+  --bold: "700";
+  --extra-bold: "800";
+
+  --xs: "0.75rem";
+  --sm: "0.875rem";
+  --md: "1rem";
+  --lg: "1.125rem";
+  --xl: "1.25rem";
+  --2xl: "1.5rem";
+  --4xl: "2rem";
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--default-black);
+  box-sizing: border-box;
+
+  background: var(--gray-100);
+}
