@@ -13,6 +13,18 @@
     .dashboard_header {
       width: 100%;
     }
+
+    .dashboard_toggle_container {
+      margin-top: 0.5rem;
+
+      > span {
+        font-weight: 700;
+      }
+
+      .dashboard_toggle {
+        margin: 0 1rem;
+      }
+    }
   }
 }
 
@@ -71,10 +83,9 @@
   cursor: default;
 }
 
-
 button {
   background: red;
   border-radius: 8px;
-  margin: 1rem 0 ;
+  margin: 1rem 0;
   padding: 1rem;
 }

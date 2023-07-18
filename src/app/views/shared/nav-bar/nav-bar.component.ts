@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { LocalStorageService } from '../../../services/local-storage.service';
 
 type MenuType = {
   url: string;
@@ -31,7 +32,10 @@ export class NavBarComponent implements OnInit {
     { url: './assets/images/Change.svg', name: 'Change Layout', active: false },
   ];
 
-  constructor(private dataSharingService: DataSharingService) {}
+  constructor(
+    private dataSharingService: DataSharingService,
+    private localStorageService: LocalStorageService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -39,11 +43,10 @@ export class NavBarComponent implements OnInit {
     data: MenuType,
     activeOurChange: 'active' | 'change'
   ) {
-    console.log(this.menus);
-    console.log(data, activeOurChange);
     if (activeOurChange === 'change') {
-      console.log('emitiu');
       this.dataSharingService.updateBooleanData(true);
+
+      this.localStorageService.setLayoutOnStorage();
       return;
     }
 
@@ -51,11 +54,9 @@ export class NavBarComponent implements OnInit {
       if (menu.name === data.name) {
         menu.active = true;
         return;
+      } else {
+        menu.active = false;
       }
-
-      menu.active = false;
     });
-
-    console.log(this.menus);
   }
 }

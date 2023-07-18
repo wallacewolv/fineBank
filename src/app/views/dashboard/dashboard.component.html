@@ -1,7 +1,17 @@
 <div class="dashboard_container">
-  <fbank-nav-bar></fbank-nav-bar>
+  <fbank-nav-bar class="dashboard_nav_bar"></fbank-nav-bar>
   <div class="dashboard_content">
     <fbank-header class="dashboard_header"></fbank-header>
+
+    <div *ngIf="toggleEnabled" class="dashboard_toggle_container">
+      <span>Custom layout</span>
+      <mat-slide-toggle
+        class="dashboard_toggle"
+        (toggleChange)="setLayoutData()"
+        [(ngModel)]="isChecked"
+      ></mat-slide-toggle>
+      <span>Default layout</span>
+    </div>
 
     <div cdkDropListGroup style="width: 100%">
       <div
@@ -12,8 +22,8 @@
         cdkDropListOrientation="horizontal"
         [cdkDropListConnectedTo]="['list-todo', 'list-done']"
         (cdkDropListDropped)="drop($event)"
-        [cdkDropListDisabled]="!dragEnabled"
-        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
+        [cdkDropListDisabled]="!dragEnabled || isChecked"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
       >
         <div
           class="example-box"
@@ -40,7 +50,8 @@
         cdkDropListOrientation="horizontal"
         [cdkDropListConnectedTo]="['list-progress', 'list-done']"
         (cdkDropListDropped)="drop($event)"
-        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
+        [cdkDropListDisabled]="!dragEnabled || isChecked"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
       >
         <div
           class="example-box"
@@ -67,7 +78,8 @@
         cdkDropListOrientation="horizontal"
         [cdkDropListConnectedTo]="['list-progress', 'list-todo']"
         (cdkDropListDropped)="drop($event)"
-        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
+        [cdkDropListDisabled]="!dragEnabled || isChecked"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
       >
         <div
           class="example-box"

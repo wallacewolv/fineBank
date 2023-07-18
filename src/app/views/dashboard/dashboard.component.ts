@@ -6,6 +6,10 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
+import {
+  LayoutType,
+  LocalStorageService,
+} from '../../services/local-storage.service';
 
 @Component({
   selector: 'fbank-dashboard',
@@ -13,21 +17,40 @@ import { DataSharingService } from 'src/app/services/data-sharing.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  progress = ['goals', 'total-balance', 'upcomming-bills'];
-  todo = ['recent-transaction'];
-  done = ['statistic', 'expenses-breakdown'];
+  progress!: Array<string>;
+  todo!: Array<string>;
+  done!: Array<string>;
   dragEnabled: boolean = true;
+  toggleEnabled: boolean = true;
+  isChecked: boolean = false;
 
-  constructor(private dataSharingService: DataSharingService) {}
+  constructor(
+    private dataSharingService: DataSharingService,
+    private localStorageService: LocalStorageService
+  ) {}
 
   ngOnInit(): void {
+    this.getLayoutInformation();
+
     this.dataSharingService.booleanData$.subscribe(() => {
       this.dragEnabled = !this.dragEnabled;
+      this.toggleEnabled = !this.toggleEnabled;
+
+      const navBar = document.querySelector(
+        '.dashboard_nav_bar'
+      ) as HTMLElement;
+
+      navBar.style.height = this.toggleEnabled ? '103%' : '100%';
     });
   }
 
-  toggleDragAndDrop() {
-    this.dragEnabled = !this.dragEnabled;
+  getLayoutInformation() {
+    const data = this.localStorageService.getLayoutOnStorage();
+
+    console.log(data)
+    this.progress = data.progress;
+    this.todo = data.todo;
+    this.done = data.done;
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -45,8 +68,20 @@ export class DashboardComponent implements OnInit {
         event.currentIndex
       );
     }
-    console.log(`Progress: ${this.progress}`);
-    console.log(`Todo: ${this.todo}`);
-    console.log(`Done: ${this.done}`);
+    this.localStorageService.layoutDefined = {
+      progress: this.progress,
+      todo: this.todo,
+      done: this.done,
+    };
+  }
+
+  setLayoutData() {
+    const data = this.isChecked
+      ? this.localStorageService.layoutDefined
+      : this.localStorageService.layoutDefault;
+
+    this.progress = data.progress;
+    this.todo = data.todo;
+    this.done = data.done;
   }
 }
