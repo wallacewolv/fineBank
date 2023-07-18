@@ -1,0 +1,24 @@
+<div class="draggable_container">
+  <fbank-nav-bar></fbank-nav-bar>
+  <div class="draggable_content">
+    <fbank-header class="draggable_header"></fbank-header>
+
+    <button (click)="toggleDragAndDrop()">
+      Habilitar/Desabilitar Drag and Drop
+    </button>
+
+    <div class="draggable_box"
+      [attr.draggable]="dragEnabled ? true : null"
+      (dragstart)="onDragStart($event)"
+    >
+      Elemento Arrastável 1
+    </div>
+
+    <div class="draggable_box"
+      [attr.draggable]="dragEnabled ? true : null"
+      (dragstart)="onDragStart($event)"
+    >
+      Elemento Arrastável 2
+    </div>
+  </div>
+</div>
