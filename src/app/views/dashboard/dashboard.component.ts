@@ -14,21 +14,19 @@ import {
 export class DashboardComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {}
-  progress = ['Carrots', 'Tomatoes', 'Onions'];
-  todo = ['Oranges', 'Bananas', 'Cucumbers'];
-  done = ['Watermelon', 'Apple', 'Peach'];
+  progress = ['goals', 'total-balance', 'upcomming-bills'];
+  todo = ['recent-transaction'];
+  done = ['statistic', 'expenses-breakdown'];
+  arrayTwo = ['', '']
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      console.log('mudar no container');
       moveItemInArray(
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
     } else {
-      console.log('mudar no outro container');
-
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -36,5 +34,8 @@ export class DashboardComponent implements OnInit {
         event.currentIndex
       );
     }
+    console.log(`Progress: ${this.progress}`);
+    console.log(`Todo: ${this.todo}`);
+    console.log(`Done: ${this.done}`);
   }
 }

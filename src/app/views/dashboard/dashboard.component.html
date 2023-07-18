@@ -13,8 +13,18 @@
         [cdkDropListConnectedTo]="['list-todo', 'list-done']"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="example-box" *ngFor="let item of progress" cdkDrag>
-          {{ item }}
+        <div
+          class="example-box"
+          *ngFor="let item of progress"
+          cdkDrag
+          [cdkDragStartDelay]="1000"
+        >
+          <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
+          <Goals *ngIf="item == 'goals'" />
+          <RecentTransaction *ngIf="item == 'recent-transaction'" />
+          <TotalBalance *ngIf="item == 'total-balance'" />
+          <Statistic *ngIf="item == 'statistic'" />
+          <UpcommingBills *ngIf="item == 'upcomming-bills'" />
         </div>
       </div>
 
@@ -27,8 +37,18 @@
         [cdkDropListConnectedTo]="['list-progress', 'list-done']"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>
-          {{ item }}
+        <div
+          class="example-box"
+          *ngFor="let item of todo"
+          cdkDrag
+          [cdkDragStartDelay]="1000"
+        >
+          <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
+          <Goals *ngIf="item == 'goals'" />
+          <RecentTransaction *ngIf="item == 'recent-transaction'" />
+          <TotalBalance *ngIf="item == 'total-balance'" />
+          <Statistic *ngIf="item == 'statistic'" />
+          <UpcommingBills *ngIf="item == 'upcomming-bills'" />
         </div>
       </div>
 
@@ -41,8 +61,18 @@
         [cdkDropListConnectedTo]="['list-progress', 'list-todo']"
         (cdkDropListDropped)="drop($event)"
       >
-        <div class="example-box" *ngFor="let item of done" cdkDrag>
-          {{ item }}
+        <div
+          class="example-box"
+          *ngFor="let item of done"
+          cdkDrag
+          [cdkDragStartDelay]="1000"
+        >
+          <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
+          <Goals *ngIf="item == 'goals'" />
+          <RecentTransaction *ngIf="item == 'recent-transaction'" />
+          <TotalBalance *ngIf="item == 'total-balance'" />
+          <Statistic *ngIf="item == 'statistic'" />
+          <UpcommingBills *ngIf="item == 'upcomming-bills'" />
         </div>
       </div>
     </div>
