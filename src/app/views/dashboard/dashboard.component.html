@@ -12,12 +12,16 @@
         cdkDropListOrientation="horizontal"
         [cdkDropListConnectedTo]="['list-todo', 'list-done']"
         (cdkDropListDropped)="drop($event)"
+        [cdkDropListDisabled]="!dragEnabled"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
       >
         <div
           class="example-box"
           *ngFor="let item of progress"
           cdkDrag
-          [cdkDragStartDelay]="1000"
+          [attr.draggable]="dragEnabled"
+          [cdkDragDisabled]="!dragEnabled"
+          [class.drag_and_drop_cursor_pointer]="!dragEnabled"
         >
           <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
           <Goals *ngIf="item == 'goals'" />
@@ -36,12 +40,15 @@
         cdkDropListOrientation="horizontal"
         [cdkDropListConnectedTo]="['list-progress', 'list-done']"
         (cdkDropListDropped)="drop($event)"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
       >
         <div
           class="example-box"
           *ngFor="let item of todo"
           cdkDrag
-          [cdkDragStartDelay]="1000"
+          [attr.draggable]="dragEnabled"
+          [cdkDragDisabled]="!dragEnabled"
+          [class.drag_and_drop_cursor_pointer]="!dragEnabled"
         >
           <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
           <Goals *ngIf="item == 'goals'" />
@@ -60,12 +67,15 @@
         cdkDropListOrientation="horizontal"
         [cdkDropListConnectedTo]="['list-progress', 'list-todo']"
         (cdkDropListDropped)="drop($event)"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
       >
         <div
           class="example-box"
           *ngFor="let item of done"
           cdkDrag
-          [cdkDragStartDelay]="1000"
+          [attr.draggable]="dragEnabled"
+          [cdkDragDisabled]="!dragEnabled"
+          [class.drag_and_drop_cursor_pointer]="!dragEnabled"
         >
           <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
           <Goals *ngIf="item == 'goals'" />

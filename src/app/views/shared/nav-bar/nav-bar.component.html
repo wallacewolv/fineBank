@@ -6,8 +6,18 @@
         <button
           [class.menu_active]="menu.active"
           [class.menu_not_active]="!menu.active"
+          (click)="
+            activeMenuOurChangeLayout(
+              menu,
+              menu.name == 'Change Layout' ? 'change' : 'active'
+            )
+          "
         >
-          <img src="{{ menu.url }}" alt="" />
+          <img
+            [class.change_icon]="menu.name == 'Change Layout'"
+            src="{{ menu.url }}"
+            alt=""
+          />
           {{ menu.name }}
         </button>
       </div>

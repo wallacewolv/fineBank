@@ -7,18 +7,25 @@
       Habilitar/Desabilitar Drag and Drop
     </button>
 
-    <div class="draggable_box"
-      [attr.draggable]="dragEnabled ? true : null"
-      (dragstart)="onDragStart($event)"
-    >
-      Elemento Arrastável 1
-    </div>
-
-    <div class="draggable_box"
-      [attr.draggable]="dragEnabled ? true : null"
-      (dragstart)="onDragStart($event)"
-    >
-      Elemento Arrastável 2
+    <div cdkDropListGroup>
+      <div
+        id="list-progress"
+        cdkDropList
+        [cdkDropListData]="progress"
+        class="example-list"
+        cdkDropListOrientation="vertical"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="draggable_box"
+          *ngFor="let item of progress"
+          [attr.draggable]="dragEnabled"
+          cdkDrag
+          [cdkDragDisabled]="!dragEnabled"
+        >
+          {{ item }}
+        </div>
+      </div>
     </div>
   </div>
 </div>

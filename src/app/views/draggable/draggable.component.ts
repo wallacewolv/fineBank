@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,13 +15,30 @@ export class DraggableComponent implements OnInit {
 
   dragEnabled: boolean = false;
 
-  onDragStart(event: DragEvent) {
-    // Lógica a ser executada quando o arraste começa (opcional)
-    console.log('Arraste iniciado.');
-  }
-
   toggleDragAndDrop() {
     this.dragEnabled = !this.dragEnabled;
+    console.log(this.dragEnabled);
+  }
+
+  progress = ['goals', 'total-balance', 'upcomming-bills'];
+
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+    console.log(`Progress: ${this.progress}`);
   }
 
 }

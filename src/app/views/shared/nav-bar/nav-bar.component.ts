@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
+
+type MenuType = {
+  url: string;
+  name: string;
+  active: boolean;
+};
 
 @Component({
   selector: 'fbank-nav-bar',
@@ -9,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
 })
 export class NavBarComponent implements OnInit {
-  menus = [
+  public menus: Array<MenuType> = [
     { url: './assets/images/Overview.svg', name: 'Overview', active: true },
     { url: './assets/images/Wallet.svg', name: 'Balances', active: false },
     {
@@ -21,9 +28,34 @@ export class NavBarComponent implements OnInit {
     { url: './assets/images/Expencces.svg', name: 'Expenses', active: false },
     { url: './assets/images/Goal.svg', name: 'Goals', active: false },
     { url: './assets/images/Settings.svg', name: 'Settings', active: false },
+    { url: './assets/images/Change.svg', name: 'Change Layout', active: false },
   ];
 
-  constructor() {}
+  constructor(private dataSharingService: DataSharingService) {}
 
   ngOnInit(): void {}
+
+  activeMenuOurChangeLayout(
+    data: MenuType,
+    activeOurChange: 'active' | 'change'
+  ) {
+    console.log(this.menus);
+    console.log(data, activeOurChange);
+    if (activeOurChange === 'change') {
+      console.log('emitiu');
+      this.dataSharingService.updateBooleanData(true);
+      return;
+    }
+
+    this.menus.map((menu) => {
+      if (menu.name === data.name) {
+        menu.active = true;
+        return;
+      }
+
+      menu.active = false;
+    });
+
+    console.log(this.menus);
+  }
 }
