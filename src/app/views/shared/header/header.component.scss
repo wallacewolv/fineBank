@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   height: 5.5rem;
-  border-bottom: 2px solid rgba(232, 232, 232, 1);
+  border-bottom: 2px solid rgb(212, 209, 209);
 
   .header_hello_date {
     display: flex;
@@ -80,6 +80,12 @@
         border-radius: 0.75rem;
         width: 22rem;
         background: #ffffff;
+
+        transition: color 0.2s;
+      }
+
+      input[type="text"]:focus {
+        background: #d2d1d1;
       }
 
       /* Estilize o ícone */
