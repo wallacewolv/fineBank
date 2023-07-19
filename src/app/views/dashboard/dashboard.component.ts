@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   done!: Array<string>;
   dragEnabled: boolean = true;
   toggleEnabled: boolean = true;
-  isChecked: boolean = false;
+  isChecked!: boolean;
 
   constructor(
     private dataSharingService: DataSharingService,
@@ -41,16 +41,25 @@ export class DashboardComponent implements OnInit {
       ) as HTMLElement;
 
       navBar.style.height = this.toggleEnabled ? '103%' : '100%';
+
+      this.localStorageService.layoutDefined.isChecked = this.isChecked;
     });
   }
 
   getLayoutInformation() {
     const data = this.localStorageService.getLayoutOnStorage();
 
-    console.log(data)
-    this.progress = data.progress;
-    this.todo = data.todo;
-    this.done = data.done;
+    if (data.isChecked) {
+      this.progress = this.localStorageService.layoutDefault.progress;
+      this.todo = this.localStorageService.layoutDefault.todo;
+      this.done = this.localStorageService.layoutDefault.done;
+      this.isChecked = data.isChecked;
+    } else {
+      this.progress = data.progress;
+      this.todo = data.todo;
+      this.done = data.done;
+      this.isChecked = data.isChecked;
+    }
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -72,6 +81,7 @@ export class DashboardComponent implements OnInit {
       progress: this.progress,
       todo: this.todo,
       done: this.done,
+      isChecked: this.isChecked,
     };
   }
 

@@ -4,6 +4,7 @@ export type LayoutType = {
   progress: Array<string>;
   todo: Array<string>;
   done: Array<string>;
+  isChecked: boolean;
 };
 
 @Injectable({
@@ -14,6 +15,7 @@ export class LocalStorageService {
     progress: ['goals', 'total-balance', 'upcomming-bills'],
     todo: ['recent-transaction'],
     done: ['statistic', 'expenses-breakdown'],
+    isChecked: false,
   };
 
   public layoutDefined!: LayoutType;
@@ -22,11 +24,19 @@ export class LocalStorageService {
 
   getLayoutOnStorage(): LayoutType {
     const dataLocalstorage = localStorage.getItem('layout');
+    const dataToggle = localStorage.getItem('toggle');
+
     if (dataLocalstorage === 'undefined' || !dataLocalstorage) {
       return this.layoutDefault;
     } else {
-      const dataParse = JSON.parse(dataLocalstorage as string);
-      this.layoutDefined = dataParse;
+      const dataParse: LayoutType = JSON.parse(dataLocalstorage as string);
+      const toggleParse: boolean = JSON.parse(dataToggle as string);
+      this.layoutDefined = {
+        progress: dataParse.progress,
+        todo: dataParse.todo,
+        done: dataParse.done,
+        isChecked: toggleParse,
+      };
       return dataParse;
     }
   }
