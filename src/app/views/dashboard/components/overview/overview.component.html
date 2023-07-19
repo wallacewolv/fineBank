@@ -1,0 +1,97 @@
+<div class="overview_container">
+  <div *ngIf="toggleEnabled" class="overview_toggle_container">
+    <span>Custom layout</span>
+    <mat-slide-toggle
+      class="overview_toggle"
+      (toggleChange)="setLayoutData()"
+      [(ngModel)]="isChecked"
+    ></mat-slide-toggle>
+    <span>Default layout</span>
+  </div>
+
+  <div cdkDropListGroup style="width: 100%">
+    <div
+      id="list-topArray"
+      cdkDropList
+      [cdkDropListData]="topArray"
+      class="example-list"
+      cdkDropListOrientation="horizontal"
+      [cdkDropListConnectedTo]="['list-centerArray', 'list-bottomArray']"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListDisabled]="!dragEnabled || isChecked"
+      [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
+    >
+      <div
+        class="example-box"
+        *ngFor="let item of topArray"
+        cdkDrag
+        [attr.draggable]="dragEnabled"
+        [cdkDragDisabled]="!dragEnabled"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
+      >
+        <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
+        <Goals *ngIf="item == 'goals'" />
+        <RecentTransaction *ngIf="item == 'recent-transaction'" />
+        <TotalBalance *ngIf="item == 'total-balance'" />
+        <Statistic *ngIf="item == 'statistic'" />
+        <UpcommingBills *ngIf="item == 'upcomming-bills'" />
+      </div>
+    </div>
+
+    <div
+      id="list-centerArray"
+      cdkDropList
+      [cdkDropListData]="centerArray"
+      class="example-list"
+      cdkDropListOrientation="horizontal"
+      [cdkDropListConnectedTo]="['list-topArray', 'list-bottomArray']"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListDisabled]="!dragEnabled || isChecked"
+      [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
+    >
+      <div
+        class="example-box"
+        *ngFor="let item of centerArray"
+        cdkDrag
+        [attr.draggable]="dragEnabled"
+        [cdkDragDisabled]="!dragEnabled"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
+      >
+        <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
+        <Goals *ngIf="item == 'goals'" />
+        <RecentTransaction *ngIf="item == 'recent-transaction'" />
+        <TotalBalance *ngIf="item == 'total-balance'" />
+        <Statistic *ngIf="item == 'statistic'" />
+        <UpcommingBills *ngIf="item == 'upcomming-bills'" />
+      </div>
+    </div>
+
+    <div
+      id="list-bottomArray"
+      cdkDropList
+      [cdkDropListData]="bottomArray"
+      class="example-list"
+      cdkDropListOrientation="horizontal"
+      [cdkDropListConnectedTo]="['list-topArray', 'list-centerArray']"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListDisabled]="!dragEnabled || isChecked"
+      [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
+    >
+      <div
+        class="example-box"
+        *ngFor="let item of bottomArray"
+        cdkDrag
+        [attr.draggable]="dragEnabled"
+        [cdkDragDisabled]="!dragEnabled"
+        [class.drag_and_drop_cursor_pointer]="!dragEnabled"
+      >
+        <ExpensesBreakdown *ngIf="item == 'expenses-breakdown'" />
+        <Goals *ngIf="item == 'goals'" />
+        <RecentTransaction *ngIf="item == 'recent-transaction'" />
+        <TotalBalance *ngIf="item == 'total-balance'" />
+        <Statistic *ngIf="item == 'statistic'" />
+        <UpcommingBills *ngIf="item == 'upcomming-bills'" />
+      </div>
+    </div>
+  </div>
+</div>
