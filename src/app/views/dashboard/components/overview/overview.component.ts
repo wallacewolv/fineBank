@@ -36,7 +36,7 @@ export class OverviewComponent implements OnInit {
         '.dashboard_nav_bar'
       ) as HTMLElement;
 
-      navBar.style.height = this.toggleEnabled ? '103%' : '100%';
+      navBar.style.height = this.toggleEnabled ? '104.3%' : '101%';
 
       this.localStorageService.layoutDefined.isChecked = this.isChecked;
     });

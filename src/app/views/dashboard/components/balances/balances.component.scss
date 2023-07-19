@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .example-box {
@@ -21,7 +20,6 @@
   position: relative;
   z-index: 1;
   box-sizing: border-box;
-  padding: 10px;
   transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -40,9 +38,9 @@
 .goals,
 .upcomming_bill {
   width: 22rem;
-  height: 14.5rem;
+  height: 13.5rem;
   left: 2rem;
-  top: 2rem;
+  top: 4rem;
 }
 .goals {
   left: 4rem;
@@ -54,10 +52,10 @@
 
 .recent_transaction {
   width: 22rem;
-  height: 33.875rem;
+  height: 31.5rem;
 
   left: 2rem;
-  top: 5rem;
+  top: 9rem;
 }
 
 .statics {
@@ -65,7 +63,7 @@
   height: 16.125rem;
 
   left: 4rem;
-  bottom: 4rem;
+  top: 1.4rem;
 }
 
 .expenses_breakdown {
@@ -73,5 +71,5 @@
   height: 13.25rem;
 
   left: 27.5rem;
-  bottom: 8rem;
+  bottom: 4.2rem;
 }

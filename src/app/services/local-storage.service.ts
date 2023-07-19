@@ -12,7 +12,7 @@ export type LayoutType = {
 })
 export class LocalStorageService {
   public layoutDefault: LayoutType = {
-    topArray: ['goals', 'total-balance', 'upcomming-bills'],
+    topArray: ['total-balance', 'goals', 'upcomming-bills'],
     centerArray: ['recent-transaction'],
     bottomArray: ['statistic', 'expenses-breakdown'],
     isChecked: false,
