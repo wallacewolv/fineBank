@@ -4,6 +4,9 @@
       <img src="./assets/images/LogoWhite.svg" alt="" />
       <div *ngFor="let menu of menus" class="navBar_menu">
         <button
+          matTooltip="Change the page layout the way you want"
+          [matTooltipPosition]="'right'"
+          [matTooltipDisabled]="menu.name != 'Change Layout'"
           [class.menu_active]="menu.active"
           [class.menu_not_active]="!menu.active"
           (click)="

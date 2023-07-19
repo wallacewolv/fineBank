@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 import { LocalStorageService } from '../../../services/local-storage.service';
@@ -14,7 +15,7 @@ type MenuType = {
   selector: 'fbank-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, MatTooltipModule],
   standalone: true,
 })
 export class NavBarComponent implements OnInit {
