@@ -4,6 +4,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 import { LocalStorageService } from '../../../services/local-storage.service';
+import { SharedService } from 'src/app/services/shared.service';
+import { cargaMenus } from 'src/assets/carga';
 
 type MenuType = {
   url: string;
@@ -19,27 +21,17 @@ type MenuType = {
   standalone: true,
 })
 export class NavBarComponent implements OnInit {
-  public menus: Array<MenuType> = [
-    { url: './assets/images/Overview.svg', name: 'Overview', active: true },
-    { url: './assets/images/Wallet.svg', name: 'Balances', active: false },
-    {
-      url: './assets/images/Transaction.svg',
-      name: 'Transactions',
-      active: false,
-    },
-    { url: './assets/images/Bill.svg', name: 'Bills', active: false },
-    { url: './assets/images/Expencces.svg', name: 'Expenses', active: false },
-    { url: './assets/images/Goal.svg', name: 'Goals', active: false },
-    { url: './assets/images/Settings.svg', name: 'Settings', active: false },
-    { url: './assets/images/Change.svg', name: 'Change Layout', active: false },
-  ];
+  public menus!: Array<MenuType>;
 
   constructor(
     private dataSharingService: DataSharingService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private sharedService: SharedService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menus = cargaMenus;
+  }
 
   activeMenuOurChangeLayout(
     data: MenuType,
@@ -55,6 +47,7 @@ export class NavBarComponent implements OnInit {
     this.menus.map((menu) => {
       if (menu.name === data.name) {
         menu.active = true;
+        this.sharedService.updatemenunData(menu.name);
         return;
       } else {
         menu.active = false;
