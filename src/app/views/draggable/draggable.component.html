@@ -1,0 +1,16 @@
+<div class="dashboard_container">
+  <fbank-nav-bar class="dashboard_nav_bar"></fbank-nav-bar>
+  <div class="dashboard_content">
+    <fbank-header class="dashboard_header"></fbank-header>
+    <div
+      class="container"
+      cdkDropList
+      [cdkDropListData]="items"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div *ngFor="let item of items" class="item" cdkDrag>
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,13 @@ const routes: Routes = [
             (m) => m.DashboardModule
           ),
       },
+      {
+        path: 'draggable',
+        loadChildren: () =>
+          import('./views/draggable/draggable.module').then(
+            (m) => m.DraggableModule
+          ),
+      },
     ],
   },
 ];
