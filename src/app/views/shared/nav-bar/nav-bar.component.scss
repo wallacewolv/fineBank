@@ -144,6 +144,11 @@
             font-size: 0.75rem;
             font-weight: 400;
             color: rgba(255, 255, 255, 0.7);
+
+            transition: color 0.2s;
+          }
+          .navBar_view_profile:hover {
+            filter: brightness(0.6);
           }
         }
       }
