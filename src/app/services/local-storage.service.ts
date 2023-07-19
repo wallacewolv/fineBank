@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 export type LayoutType = {
-  progress: Array<string>;
-  todo: Array<string>;
-  done: Array<string>;
+  topArray: Array<string>;
+  centerArray: Array<string>;
+  bottomArray: Array<string>;
   isChecked: boolean;
 };
 
@@ -12,9 +12,9 @@ export type LayoutType = {
 })
 export class LocalStorageService {
   public layoutDefault: LayoutType = {
-    progress: ['goals', 'total-balance', 'upcomming-bills'],
-    todo: ['recent-transaction'],
-    done: ['statistic', 'expenses-breakdown'],
+    topArray: ['goals', 'total-balance', 'upcomming-bills'],
+    centerArray: ['recent-transaction'],
+    bottomArray: ['statistic', 'expenses-breakdown'],
     isChecked: false,
   };
 
@@ -22,7 +22,7 @@ export class LocalStorageService {
 
   constructor() {}
 
-  getLayoutOnStorage(): LayoutType {
+  getDataOnStorage(): LayoutType {
     const dataLocalstorage = localStorage.getItem('layout');
     const dataToggle = localStorage.getItem('toggle');
 
@@ -32,16 +32,16 @@ export class LocalStorageService {
       const dataParse: LayoutType = JSON.parse(dataLocalstorage as string);
       const toggleParse: boolean = JSON.parse(dataToggle as string);
       this.layoutDefined = {
-        progress: dataParse.progress,
-        todo: dataParse.todo,
-        done: dataParse.done,
+        topArray: dataParse.topArray,
+        centerArray: dataParse.centerArray,
+        bottomArray: dataParse.bottomArray,
         isChecked: toggleParse,
       };
       return dataParse;
     }
   }
 
-  setLayoutOnStorage() {
+  setDataOnStorage() {
     const dataStringfy = JSON.stringify(this.layoutDefined);
     localStorage.setItem('layout', dataStringfy);
   }

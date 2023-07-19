@@ -15,19 +15,19 @@
 
     <div cdkDropListGroup style="width: 100%">
       <div
-        id="list-progress"
+        id="list-topArray"
         cdkDropList
-        [cdkDropListData]="progress"
+        [cdkDropListData]="topArray"
         class="example-list"
         cdkDropListOrientation="horizontal"
-        [cdkDropListConnectedTo]="['list-todo', 'list-done']"
+        [cdkDropListConnectedTo]="['list-centerArray', 'list-bottomArray']"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListDisabled]="!dragEnabled || isChecked"
         [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
       >
         <div
           class="example-box"
-          *ngFor="let item of progress"
+          *ngFor="let item of topArray"
           cdkDrag
           [attr.draggable]="dragEnabled"
           [cdkDragDisabled]="!dragEnabled"
@@ -43,19 +43,19 @@
       </div>
 
       <div
-        id="list-todo"
+        id="list-centerArray"
         cdkDropList
-        [cdkDropListData]="todo"
+        [cdkDropListData]="centerArray"
         class="example-list"
         cdkDropListOrientation="horizontal"
-        [cdkDropListConnectedTo]="['list-progress', 'list-done']"
+        [cdkDropListConnectedTo]="['list-topArray', 'list-bottomArray']"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListDisabled]="!dragEnabled || isChecked"
         [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
       >
         <div
           class="example-box"
-          *ngFor="let item of todo"
+          *ngFor="let item of centerArray"
           cdkDrag
           [attr.draggable]="dragEnabled"
           [cdkDragDisabled]="!dragEnabled"
@@ -71,19 +71,19 @@
       </div>
 
       <div
-        id="list-done"
+        id="list-bottomArray"
         cdkDropList
-        [cdkDropListData]="done"
+        [cdkDropListData]="bottomArray"
         class="example-list"
         cdkDropListOrientation="horizontal"
-        [cdkDropListConnectedTo]="['list-progress', 'list-todo']"
+        [cdkDropListConnectedTo]="['list-topArray', 'list-centerArray']"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListDisabled]="!dragEnabled || isChecked"
         [class.drag_and_drop_cursor_pointer]="!dragEnabled || isChecked"
       >
         <div
           class="example-box"
-          *ngFor="let item of done"
+          *ngFor="let item of bottomArray"
           cdkDrag
           [attr.draggable]="dragEnabled"
           [cdkDragDisabled]="!dragEnabled"

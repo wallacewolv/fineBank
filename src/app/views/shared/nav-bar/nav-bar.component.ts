@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
+
 import { LocalStorageService } from '../../../services/local-storage.service';
 
 type MenuType = {
@@ -46,7 +47,7 @@ export class NavBarComponent implements OnInit {
     if (activeOurChange === 'change') {
       this.dataSharingService.updateBooleanData(true);
 
-      this.localStorageService.setLayoutOnStorage();
+      this.localStorageService.setDataOnStorage();
       return;
     }
 

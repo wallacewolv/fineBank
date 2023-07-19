@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
 import {
-  CdkDrag,
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
-import {
-  LayoutType,
-  LocalStorageService,
-} from '../../services/local-storage.service';
+
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'fbank-dashboard',
@@ -17,9 +14,9 @@ import {
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  progress!: Array<string>;
-  todo!: Array<string>;
-  done!: Array<string>;
+  topArray!: Array<string>;
+  centerArray!: Array<string>;
+  bottomArray!: Array<string>;
   dragEnabled: boolean = true;
   toggleEnabled: boolean = true;
   isChecked!: boolean;
@@ -47,17 +44,17 @@ export class DashboardComponent implements OnInit {
   }
 
   getLayoutInformation() {
-    const data = this.localStorageService.getLayoutOnStorage();
+    const data = this.localStorageService.getDataOnStorage();
 
     if (data.isChecked) {
-      this.progress = this.localStorageService.layoutDefault.progress;
-      this.todo = this.localStorageService.layoutDefault.todo;
-      this.done = this.localStorageService.layoutDefault.done;
+      this.topArray = this.localStorageService.layoutDefault.topArray;
+      this.centerArray = this.localStorageService.layoutDefault.centerArray;
+      this.bottomArray = this.localStorageService.layoutDefault.bottomArray;
       this.isChecked = data.isChecked;
     } else {
-      this.progress = data.progress;
-      this.todo = data.todo;
-      this.done = data.done;
+      this.topArray = data.topArray;
+      this.centerArray = data.centerArray;
+      this.bottomArray = data.bottomArray;
       this.isChecked = data.isChecked;
     }
   }
@@ -78,9 +75,9 @@ export class DashboardComponent implements OnInit {
       );
     }
     this.localStorageService.layoutDefined = {
-      progress: this.progress,
-      todo: this.todo,
-      done: this.done,
+      topArray: this.topArray,
+      centerArray: this.centerArray,
+      bottomArray: this.bottomArray,
       isChecked: this.isChecked,
     };
   }
@@ -90,8 +87,8 @@ export class DashboardComponent implements OnInit {
       ? this.localStorageService.layoutDefined
       : this.localStorageService.layoutDefault;
 
-    this.progress = data.progress;
-    this.todo = data.todo;
-    this.done = data.done;
+    this.topArray = data.topArray;
+    this.centerArray = data.centerArray;
+    this.bottomArray = data.bottomArray;
   }
 }
