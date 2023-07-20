@@ -120,6 +120,18 @@
         display: flex;
         align-items: center;
         gap: 0.25rem;
+
+        transition: color 0.2s;
+      }
+
+      .total_balance_slider_previous {
+        opacity: 0.6;
+      }
+
+      .total_balance_slider_next:hover {
+        cursor: pointer;
+        filter: brightness(0.8);
+        color: #c00;
       }
     }
   }
