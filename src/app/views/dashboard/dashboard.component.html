@@ -3,11 +3,11 @@
   <div class="dashboard_content">
     <fbank-header class="dashboard_header"></fbank-header>
     <fbank-overview
-      *ngIf="selectedMenu == 'Overview'"
+      *ngIf="selectedMenu == 'Balances'"
       class="dashboard_overview"
     ></fbank-overview>
     <fbank-balances
-      *ngIf="selectedMenu == 'Balances'"
+      *ngIf="selectedMenu == 'Overview'"
       class="dashboard_balances"
     ></fbank-balances>
   </div>

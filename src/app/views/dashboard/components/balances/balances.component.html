@@ -1,9 +1,13 @@
 <div class="balances_container">
   <div class="example-boundary">
     <TotalBalance
-      class="example-box total_balance"
+      id="total_balance"
+      class="example-box total_balance width_full"
       cdkDragBoundary=".example-boundary"
       cdkDrag
+      draggable="true"
+      (cdkDragStarted)="drop($event)"
+      (cdkDragEnded)="dropEnd($event)"
     />
     <Goals
       class="example-box goals"
