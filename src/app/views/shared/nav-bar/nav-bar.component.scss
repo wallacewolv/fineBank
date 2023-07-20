@@ -9,164 +9,165 @@
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
+}
 
-  .navBar_logoMenu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 14rem;
-    padding: 4rem 0;
-    border: 0;
+.navBar_logoMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 14rem;
+  padding: 4rem 0;
+  border: 0;
+}
 
-    .navBar_top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 14rem;
+.navBar_top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14rem;
+}
 
-      .navBar_menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        justify-content: flex-start;
-        gap: 1rem;
-        width: 100%;
+.navBar_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
 
-        > button {
-          color: #ffffff;
-          font-size: 1rem;
-          font-weight: 600;
-          background: #191919;
-          margin-bottom: 1rem;
-        }
-
-        .menu_active {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          background: #cc0000;
-          width: 100%;
-          border-radius: 4px;
-          padding: 1rem;
-          cursor: pointer;
-        }
-
-        .menu_not_active {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          width: 100%;
-          padding: 1rem;
-          cursor: pointer;
-
-          transition: color 0.2s;
-        }
-
-        .menu_not_active:hover {
-          background: #cc0000;
-          width: 100%;
-          border-radius: 4px;
-          padding: 1rem;
-        }
-      }
-    }
-
-    .navBar_top > img {
-      width: 8rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+  > button {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #191919;
+    margin-bottom: 1rem;
   }
 
-  .navBar_footer {
+  .menu_active {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    width: 14rem;
-    height: 12.25rem;
-
-    .navBar_logout {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgb(54, 53, 53);
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 600;
-      width: 100%;
-      border-radius: 4px;
-      padding: 0.65rem 1rem;
-      cursor: pointer;
-
-      transition: color 0.2s;
-    }
-
-    .navBar_logout:hover {
-      filter: brightness(0.85);
-    }
-
-    .navBar_profile {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 2rem 0;
-      border-top: 1px solid rgb(54, 53, 53);
-
-      .navBar_name_picture {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-
-        > img {
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-          border: 2px solid black;
-          background-color: rgba(250, 250, 250, 0.1);
-        }
-
-        .navBar_name_view_profile {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: center;
-
-          .navBar_name {
-            font-size: 1rem;
-            font-weight: 600;
-          }
-
-          .navBar_view_profile {
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-
-            transition: color 0.2s;
-          }
-          .navBar_view_profile:hover {
-            filter: brightness(0.6);
-          }
-        }
-      }
-    }
-
-    .navBar_icon {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.35rem;
-
-      background: #191919;
-    }
-
-    .navBar_icon:hover {
-      filter: brightness(0.8);
-    }
+    gap: 0.75rem;
+    background: #cc0000;
+    width: 100%;
+    border-radius: 4px;
+    padding: 1rem;
+    cursor: pointer;
   }
+
+  .menu_not_active {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+
+    transition: color 0.2s;
+  }
+
+  .menu_not_active:hover {
+    background: #cc0000;
+    width: 100%;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+}
+
+.navBar_top > img {
+  width: 8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.navBar_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 14rem;
+  height: 12.25rem;
+}
+
+.navBar_logout {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgb(54, 53, 53);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+
+  transition: color 0.2s;
+}
+
+.navBar_logout:hover {
+  filter: brightness(0.85);
+}
+
+.navBar_profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 0;
+  border-top: 1px solid rgb(54, 53, 53);
+}
+
+.navBar_name_picture {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  > img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: rgba(250, 250, 250, 0.1);
+  }
+}
+
+.navBar_name_view_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.navBar_name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.navBar_view_profile {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+
+  transition: color 0.2s;
+}
+
+.navBar_view_profile:hover {
+  filter: brightness(0.6);
+}
+
+.navBar_icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+
+  background: #191919;
+}
+
+.navBar_icon:hover {
+  filter: brightness(0.8);
 }
 
 .change_icon {

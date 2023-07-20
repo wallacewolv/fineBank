@@ -2,26 +2,26 @@
   display: flex;
   height: 119%;
   width: 100%;
+}
 
-  .dashboard_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-height: 91.4%;
+.dashboard_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-height: 91.4%;
+}
 
-    .dashboard_header {
-      width: 100%;
-    }
+.dashboard_header {
+  width: 100%;
+}
 
-    .dashboard_overview {
-      width: 100%;
-    }
+.dashboard_overview {
+  width: 100%;
+}
 
-    .dashboard_balances {
-      width: 100%;
-      max-height: 91.4%;
-    }
-  }
+.dashboard_balances {
+  width: 100%;
+  max-height: 91.4%;
 }
