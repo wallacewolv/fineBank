@@ -1,4 +1,35 @@
 <div class="expenses_breakdon_container">
-  <span class="expenses_breakdon_title">Expenses Breakdown</span>
-  <div class="expenses_breakdon_content"></div>
+  <div class="expenses_breakdon_title">
+    <span>Expenses Breakdown</span>
+    <span>*Compare to last month</span>
+  </div>
+  <div class="expenses_breakdon_content">
+    <div
+      class="item"
+      *ngFor="let item of expensesBreakdown; let i = index"
+      [ngClass]="{
+        expenses_breakdon_item_special_border_top_left: i === 0,
+        expenses_breakdon_item_special_border_top_center: i === 1,
+        expenses_breakdon_item_special_border_top_rigth: i === 2,
+        expenses_breakdon_item_special_border_bottom_left: i === 3,
+        expenses_breakdon_item_special_border_bottom_center: i === 4,
+        expenses_breakdon_item_special_border_bottom_right: i === 5
+      }"
+    >
+      <div class="expenses_breakdon_content_item">
+        <img src="{{ item.urlImage }}" alt="" />
+        <div class="expenses_breakdon_content_item_desc">
+          <span>{{ item.item }}</span>
+          <span>{{ item.amount }}</span>
+          <div class="expenses_breakdon_content_item_desc_perc">
+            <span>{{ item.percentage }}</span>
+            <img src="{{ item.iconArrowUpOurDown }}" alt="" />
+          </div>
+        </div>
+        <a href="">
+          <img src="{{ item.iconArrowRight }}" alt="" />
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

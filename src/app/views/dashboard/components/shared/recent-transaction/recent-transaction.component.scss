@@ -94,6 +94,12 @@
           gap: 1rem;
           margin-right: 1.75rem;
 
+          > img {
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(210, 210, 210, 0.25);
+          }
+
           .recent_transactions_item_details {
             display: flex;
             flex-direction: column;

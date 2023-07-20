@@ -78,3 +78,54 @@ export const cargaRecentsTransactions = [
     dateTransaction: '17 May 2023',
   },
 ];
+
+export const cargaExpensesBreakdown = [
+  {
+    urlImage: './assets/images/Housing.svg',
+    item: 'Housing',
+    amount: '$250.00',
+    percentage: '15%*',
+    iconArrowUpOurDown: './assets/images/UpArrow.svg',
+    iconArrowRight: './assets/images/ArrowRight.svg',
+  },
+  {
+    urlImage: './assets/images/Food.svg',
+    item: 'Food',
+    amount: '$350.00',
+    percentage: '08%*',
+    iconArrowUpOurDown: './assets/images/DownArrow.svg',
+    iconArrowRight: './assets/images/ArrowRight.svg',
+  },
+  {
+    urlImage: './assets/images/Transport.svg',
+    item: 'Transportation',
+    amount: '$50.00',
+    percentage: '12%*',
+    iconArrowUpOurDown: './assets/images/DownArrow.svg',
+    iconArrowRight: './assets/images/ArrowRight.svg',
+  },
+  {
+    urlImage: './assets/images/Movie.svg',
+    item: 'Entertainment',
+    amount: '$80.00',
+    percentage: '15%*',
+    iconArrowUpOurDown: './assets/images/DownArrow.svg',
+    iconArrowRight: './assets/images/ArrowRight.svg',
+  },
+  {
+    urlImage: './assets/images/Shopping.svg',
+    item: 'Shopping',
+    amount: '$420.00',
+    percentage: '25%*',
+    iconArrowUpOurDown: './assets/images/UpArrow.svg',
+    iconArrowRight: './assets/images/ArrowRight.svg',
+  },
+  {
+    urlImage: './assets/images/Others.svg',
+    item: 'Others',
+    amount: '$650.00',
+    percentage: '23%*',
+    iconArrowUpOurDown: './assets/images/UpArrow.svg',
+    iconArrowRight: './assets/images/ArrowRight.svg',
+  },
+];
